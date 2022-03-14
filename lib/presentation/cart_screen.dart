@@ -13,8 +13,6 @@ class CartScreen extends StatelessWidget {
       body: ListView.separated(
           itemBuilder: (_, index) => ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const ItemDetailsScreen()));
-
                 },
                 title: const Text('Item 0'),
                 trailing: Container(

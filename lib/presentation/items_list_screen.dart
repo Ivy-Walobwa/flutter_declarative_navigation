@@ -13,8 +13,6 @@ class ItemsListScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => const CartScreen()));
             },
             icon: const Icon(Icons.shopping_cart),
           )
@@ -23,8 +21,6 @@ class ItemsListScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (_, index) => ListTile(
           onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const ItemDetailsScreen()),);
           },
           title: Text('Item $index'),
         ),
