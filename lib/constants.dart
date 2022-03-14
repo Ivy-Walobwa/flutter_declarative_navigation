@@ -1,3 +1,4 @@
-const itemListRoute = '/item-list';
-const itemDetailRoute = '/item-detail';
-const cartRoute = '/cart';
+const itemListRoute = 'home';
+const cartRoute = 'cart';
+
+const routes = [itemListRoute, cartRoute];
