@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const ItemsListScreen(),
+      home: Navigator(
+        pages: [],
+        onPopPage: (route, result)=>route.didPop(result),
+      ),
     );
   }
 }
