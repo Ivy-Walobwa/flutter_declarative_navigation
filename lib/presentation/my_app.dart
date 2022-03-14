@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttter_nav2/presentation/items_list_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(),
+      home: const ItemsListScreen(),
     );
   }
 }
