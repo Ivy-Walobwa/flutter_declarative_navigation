@@ -31,7 +31,27 @@ class _MyAppState extends State<MyApp> {
               onRouteTapped: _handleRouteTapped,
             ),
           ),
-
+          if (show404)
+            const MaterialPage(
+              key: ValueKey('Error Page'),
+              child: Center(
+                child: Text('404'),
+              ),
+            )
+          else if (_selectedItem != null)
+            MaterialPage(
+              key: ValueKey(_selectedItem!),
+              child: ItemDetailsScreen(
+                item: _selectedItem!,
+              ),
+            )
+          else if (_selectedRoute != null && _selectedRoute == cartRoute)
+            MaterialPage(
+              key: ValueKey(_selectedRoute!),
+              child: CartScreen(
+                onItemTapped: _handleItemTapped,
+              ),
+            )
         ],
         onPopPage: (route, result) => route.didPop(result),
       ),
