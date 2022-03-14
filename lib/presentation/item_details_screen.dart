@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ItemDetailsScreen extends StatelessWidget {
-  const ItemDetailsScreen({Key? key}) : super(key: key);
+  final String item;
+  const ItemDetailsScreen({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +15,11 @@ class ItemDetailsScreen extends StatelessWidget {
         children: [
           Center(
             child: Text(
-              'Item 0 ',
+              item,
               style: Theme.of(context).textTheme.headline2,
             ),
           ),
-          const Text('Item 0 Details')
+           Text('$item Details')
         ],
       ),
     );

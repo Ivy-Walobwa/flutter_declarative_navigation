@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
-import 'screens.dart';
 
-class MyApp extends StatelessWidget {
+import 'screens.dart';
+import '../constants.dart';
+
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String? _selectedItem;
+  String? _selectedRoute;
+  bool show404 = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,14 +23,33 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Navigator(
-        pages: const [
+        pages: [
           MaterialPage(
-            key: ValueKey('ItemListScreen'),
-            child: ItemsListScreen(),
-          )
+            key: const ValueKey('ItemListScreen'),
+            child: ItemsListScreen(
+              onItemTapped: _handleItemTapped,
+              onRouteTapped: _handleRouteTapped,
+            ),
+          ),
+
         ],
         onPopPage: (route, result) => route.didPop(result),
       ),
     );
+  }
+
+  void _handleItemTapped(String item) {
+    setState(() {
+      _selectedItem = item;
+    });
+  }
+
+  void _handleRouteTapped(
+    String route,
+  ) {
+    setState(() {
+      _selectedItem = null;
+      _selectedRoute = route;
+    });
   }
 }

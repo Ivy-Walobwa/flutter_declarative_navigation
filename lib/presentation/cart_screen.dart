@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluttter_nav2/presentation/item_details_screen.dart';
 
+import '../constants.dart';
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
+  final ValueChanged<String> onItemTapped ;
+
+  const CartScreen({Key? key, required this.onItemTapped}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +14,8 @@ class CartScreen extends StatelessWidget {
       ),
       body: ListView.separated(
           itemBuilder: (_, index) => ListTile(
-                onTap: () {
-                },
-                title: const Text('Item 0'),
+                onTap: ()=> onItemTapped('Item ${index+index}', ),
+                title:  Text('Item ${index+index}'),
                 trailing: Container(
                     padding: const EdgeInsets.all(6),
                     decoration:  BoxDecoration(
