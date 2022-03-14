@@ -53,7 +53,25 @@ class _MyAppState extends State<MyApp> {
               ),
             )
         ],
-        onPopPage: (route, result) => route.didPop(result),
+        onPopPage: (route, result) {
+          if (!route.didPop(result)) {
+            return false;
+          }
+
+          if(_selectedItem != null && _selectedRoute != null){
+            setState(() {
+              _selectedItem = null;
+            });
+            return true;
+          }
+
+          setState(() {
+            _selectedRoute = null;
+            _selectedItem = null;
+          });
+
+          return true;
+        },
       ),
     );
   }
