@@ -24,7 +24,7 @@ class CartScreen extends StatelessWidget {
                     child: const Text(' 1 ')),
               ),
           separatorBuilder: (ctx, idx) => const Divider(),
-          itemCount: 3),
+          itemCount: 5),
     );
   }
 }
